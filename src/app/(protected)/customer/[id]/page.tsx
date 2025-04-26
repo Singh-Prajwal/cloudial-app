@@ -3,10 +3,15 @@ import { PrismaClient } from "@prisma/client";
 import Link from "next/link";
 import DeleteInvoiceButton from "../../../components/deleteInvoiceButton";
 import BackButton from "@/app/components/backButton";
+import { JSX } from "react";
 
 const prisma = new PrismaClient();
 
-export default async function UserPage({ params }: { params: { id: string } }) {
+export default async function UserPage({
+  params,
+}: {
+  params: { id: string };
+}): JSX.Element {
   const { id } = params;
 
   const user = await prisma.user.findUnique({
