@@ -3,15 +3,12 @@ import { useState } from "react";
 import { addInvoice } from "../../../../actions/addInvoice";
 import BackButton from "@/app/components/backButton";
 import { use } from "react";
-interface PageProps {
-  params: { id: string }; // Ensure this matches the expected type
-}
-const AddInvoicePage: React.FC<PageProps> = ({ params }) => {
+export default function AddInvoicePage({ params }: { params: { id: string } }) {
   const [amount, setAmount] = useState("");
   const [status, setStatus] = useState("PENDING");
   const [dueDate, setDueDate] = useState("");
-  // const { id } = use(params);
-  const { id } = params;
+  const { id } = use(params);
+  // const { id } = params;
   console.log("ID", id);
   return (
     <div className="max-w-md mx-auto text-black mt-10 p-6 bg-white rounded-2xl shadow-lg">
@@ -70,5 +67,4 @@ const AddInvoicePage: React.FC<PageProps> = ({ params }) => {
       </form>
     </div>
   );
-};
-export default AddInvoicePage;
+}
