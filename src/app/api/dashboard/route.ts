@@ -22,7 +22,7 @@ export async function GET() {
         }),
       ]);
     console.log("users", users);
-    const revenueData = invoices.reduce((acc, invoice) => {
+    const revenueData = invoices.reduce((acc: any, invoice: any) => {
       const month = new Date(invoice.dueDate).toLocaleString("default", {
         month: "short",
         year: "numeric",
