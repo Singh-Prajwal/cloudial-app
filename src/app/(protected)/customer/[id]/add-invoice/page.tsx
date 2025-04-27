@@ -2,7 +2,6 @@
 import { JSX, useState } from "react";
 import { addInvoice } from "../../../../actions/addInvoice";
 import BackButton from "@/app/components/backButton";
-import { use } from "react";
 export default function AddInvoicePage({
   params,
 }: {
@@ -13,7 +12,6 @@ export default function AddInvoicePage({
   const [dueDate, setDueDate] = useState("");
   // const { id } = use(params);
   const { id } = params;
-  console.log("ID", id);
   return (
     <div className="max-w-md mx-auto text-black mt-10 p-6 bg-white rounded-2xl shadow-lg">
       <div className="flex justify-between items-center mb-4">
