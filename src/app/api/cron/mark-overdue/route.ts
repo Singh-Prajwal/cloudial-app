@@ -1,3 +1,4 @@
+"use server";
 import { NextResponse } from "next/server";
 import prisma from "@/app/lib/prisma";
 import cron from "node-cron";
