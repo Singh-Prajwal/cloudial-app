@@ -33,30 +33,3 @@ export async function PATCH(
     );
   }
 }
-
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const session = await getServerSession(authOptions);
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const { id } = params; // Destructuring id from params
-
-  try {
-    await prisma.user.delete({
-      where: {
-        id: id, // Deleting the user by id
-      },
-    });
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { error: "Delete failed or user not found" },
-      { status: 400 }
-    );
-  }
-}
