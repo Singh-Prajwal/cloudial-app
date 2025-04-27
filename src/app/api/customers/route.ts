@@ -6,7 +6,7 @@ import { authOptions } from "../../../lib/authOptions";
 export async function GET(req: NextRequest) {
   const session = await getServerSession(authOptions);
 
-  if (!session?.user?.id) {
+  if (!session?.user?.email) {
     return NextResponse.redirect("/login"); // Redirect to login on unauthorized access
   }
 
