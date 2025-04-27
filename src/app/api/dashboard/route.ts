@@ -32,7 +32,7 @@ export async function GET() {
     }, {} as Record<string, number>);
 
     const outstandingBalance = outstandingInvoices.reduce(
-      (acc, invoice) => acc + invoice.amount,
+      (acc: any, invoice: any) => acc + invoice.amount,
       0
     );
     return new Response(
