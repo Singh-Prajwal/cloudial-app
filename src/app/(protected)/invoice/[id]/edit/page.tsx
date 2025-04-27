@@ -1,4 +1,4 @@
-import { prisma } from "../../../../lib/prisma";
+import prisma from "../../../../lib/prisma";
 import EditInvoiceForm from "../../../../components/editInvoiceForm";
 import BackButton from "@/app/components/backButton";
 
