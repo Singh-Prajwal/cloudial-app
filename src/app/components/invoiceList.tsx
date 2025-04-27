@@ -20,7 +20,7 @@ export default function InvoiceList() {
 
   const handleFilterChange = (searchTerm: string, status: string) => {
     const filtered = invoices.filter(
-      (invoice) =>
+      (invoice: any) =>
         (searchTerm ? invoice.customerName.includes(searchTerm) : true) &&
         (status ? invoice.status === status : true)
     );
@@ -41,7 +41,7 @@ export default function InvoiceList() {
           </tr>
         </thead>
         <tbody>
-          {filteredInvoices.map((invoice) => (
+          {filteredInvoices.map((invoice: any) => (
             <tr key={invoice.id}>
               <td>{invoice.customerName}</td>
               <td>{invoice.amount}</td>
