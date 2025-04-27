@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   }
 
   const customers = await prisma.user.findMany({
-    where: { id: session.user.id }, // Fetch only the logged-in user's data
+    where: { email: session?.user?.email }, // Fetch only the logged-in user's data
     select: {
       id: true,
       name: true,
