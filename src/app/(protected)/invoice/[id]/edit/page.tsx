@@ -2,11 +2,7 @@ import { prisma } from "../../../../lib/prisma";
 import EditInvoiceForm from "../../../../components/editInvoiceForm";
 import BackButton from "@/app/components/backButton";
 
-export default async function EditInvoicePage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function EditInvoicePage({ params }: any) {
   const { id } = params;
   const invoice = await prisma.invoice.findUnique({
     where: { id: id },

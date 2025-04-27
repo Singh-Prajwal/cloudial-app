@@ -7,11 +7,7 @@ import { JSX } from "react";
 
 const prisma = new PrismaClient();
 
-export default async function UserPage({
-  params,
-}: {
-  params: { id: string };
-}): JSX.Element {
+export default async function UserPage({ params }: any) {
   const { id } = params;
 
   const user = await prisma.user.findUnique({
