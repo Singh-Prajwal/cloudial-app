@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import prisma from "../lib/prisma";
 
-export async function addInvoice(formData: FormData) {
+export async function addInvoice(formData: FormData): Promise<void> {
   try {
     const amount = parseFloat(formData.get("amount") as string);
     const status = formData.get("status") as string;
