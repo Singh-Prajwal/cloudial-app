@@ -2,11 +2,7 @@
 import { JSX, useState } from "react";
 import { addInvoice } from "../../../../actions/addInvoice";
 import BackButton from "@/app/components/backButton";
-export default function AddInvoicePage({
-  params,
-}: {
-  params: { id: string };
-}): JSX.Element {
+export default function AddInvoicePage({ params }: any) {
   const [amount, setAmount] = useState("");
   const [status, setStatus] = useState("PENDING");
   const [dueDate, setDueDate] = useState("");
