@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../lib/prisma";
 import { getServerSession } from "next-auth";
-// import { authOptions } from "../../auth/[...nextauth]/route";
-import { authOptions } from "../../../../lib/authOptions";
+import { authOptions } from "../../../../lib/authOptions"; // Correct authOptions import path
+
 export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -12,7 +12,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { id } = params;
+  const { id } = params; // Destructuring id from params
   const body = await req.json();
 
   try {
@@ -36,14 +36,14 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { id } = context.params;
+  const { id } = params; // Destructuring id from params
 
   try {
     await prisma.user.delete({
