@@ -1,7 +1,8 @@
+// src/lib/authOptions.ts
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prisma from "../app/lib/prisma"; // adjust this import if needed
+import prisma from "../app/lib/prisma"; // use alias "@/lib/prisma", cleaner
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -13,12 +14,17 @@ export const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
 
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
         });
-        if (!user) return null;
+
+        if (!user) {
+          return null;
+        }
 
         return {
           id: user.id,
@@ -28,11 +34,17 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/login",
+  },
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user) {
+        token.id = user.id;
+      }
       return token;
     },
     async session({ session, token }) {

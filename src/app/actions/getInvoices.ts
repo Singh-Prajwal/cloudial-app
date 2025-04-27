@@ -1,7 +1,7 @@
 // /actions/getInvoices.ts
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../lib/prisma";
 
 export async function getInvoices(customerId?: string) {
   try {
