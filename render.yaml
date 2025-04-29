@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: cloudial-app
+    env: node
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: task
+          property: prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNTM0YzgyYmUtOTIzNC00NzA2LTljZTItNWZmM2M0YWEzNjQ1IiwidGVuYW50X2lkIjoiNWMwNzgwZmU5MTVlZmRlMDIyZDE1YTkwM2E3MDI5Y2E1YjgxMTMwM2IwYzZhZjY0Y2Y1ZDExYjQ1Yjg3ODk4ZiIsImludGVybmFsX3NlY3JldCI6IjAzZjk0YTU3LTI2YmUtNDk3My1hOTI3LTJjZTU0YzdhYjU5NyJ9.-1KSaGeCOP7tqouiOB0Ua6LuOfNpgsq7H04k7fiPbTk
