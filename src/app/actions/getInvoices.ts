@@ -13,7 +13,7 @@ export async function getInvoices(customerId?: string) {
         createdAt: "desc",
       },
       include: {
-        customer: true, // to show customer name/details with the invoice
+        customer: true,
       },
     });
 

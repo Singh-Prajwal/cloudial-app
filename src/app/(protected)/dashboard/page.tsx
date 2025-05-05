@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "../../components/ui/card";
 import Link from "next/link";
@@ -48,12 +48,12 @@ export default function DashboardPage() {
     data;
   console.log("revenueData", revenueData);
   const revenueChartData = {
-    labels: Object.keys(revenueData), // e.g. ["Jan 2024", "Feb 2024"]
+    labels: Object.keys(revenueData),
     datasets: [
       {
         label: "Revenue",
-        data: Object.values(revenueData), // [5000, 3000, 4000]
-        backgroundColor: "#3B82F6", // Tailwind blue
+        data: Object.values(revenueData),
+        backgroundColor: "#3B82F6",
       },
     ],
   };
@@ -114,7 +114,6 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-      {/* Customer List */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-2">Customers</h2>
         <ul className="divide-y divide-gray-200">

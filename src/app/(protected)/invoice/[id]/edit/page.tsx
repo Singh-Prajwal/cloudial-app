@@ -12,7 +12,6 @@ export default async function EditInvoicePage({ params }: any) {
     return <p className="p-4 text-red-600">Invoice not found.</p>;
   }
 
-  console.log("id,", id);
   return (
     <div className="max-w-2xl mx-auto mt-10">
       <EditInvoiceForm

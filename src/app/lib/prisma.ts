@@ -14,13 +14,3 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default prisma;
-// // src/app/lib/prisma.ts
-// import { PrismaClient } from "@prisma/client";
-
-// const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
-
-// const prisma = new PrismaClient();
-
-// if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-
-// export default prisma;
