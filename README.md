@@ -159,6 +159,12 @@ Copy the command above and paste it into PowerShell.
 Ensure your application is running locally at http://localhost:3000.
 
 Execute the command to add or update the invoice.
+```
+## API for Adding/Updating Invoices from EXTERNAL API
+
+### Command:
+npm run send-reminders
+
 
 ## 📄 License
 
