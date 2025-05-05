@@ -122,6 +122,43 @@ src/
 ```
 
 ---
+## API for Adding/Updating Invoices from EXTERNAL API
+
+You can add or update invoices via the external API using the following PowerShell command. This command sends a POST request to the `/api/external/invoices` endpoint with the required fields.
+
+### PowerShell Command
+
+```powershell
+Invoke-RestMethod -Uri "http://localhost:3000/api/external/invoices" `
+  -Method Post `
+  -Headers @{ "Content-Type" = "application/json" } `
+  -Body '{ 
+    "externalCustomerId": "cm9x1f4r000000c0wk5u4x4e7", 
+    "externalInvoiceId": "cm9xyx9720001xa0vaxoknq7v", 
+    "amount": 22424200, 
+    "dueDate": "2025-05-30T00:00:00.000Z", 
+    "status": "PENDING" 
+  }'
+
+Explanation of Fields:
+externalCustomerId: The identifier of the customer from the external system.
+
+externalInvoiceId: The identifier of the invoice from the external system.
+
+amount: The amount for the invoice.
+
+dueDate: The due date for the invoice, in ISO 8601 format.
+
+status: The current status of the invoice (e.g., PENDING, PAID, etc.).
+
+Steps to Execute:
+Open PowerShell.
+
+Copy the command above and paste it into PowerShell.
+
+Ensure your application is running locally at http://localhost:3000.
+
+Execute the command to add or update the invoice.
 
 ## 📄 License
 
