@@ -36,9 +36,11 @@ Copy the provided `.env` file into the root directory of the project.
 > Ensure that your `.env` file contains the following (or similar) variables:
 
 ```env
-DATABASE_URL=your_postgres_connection_string
-NEXTAUTH_SECRET=your_nextauth_secret
-NEXTAUTH_URL=http://localhost:3000
+DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTljNzA2NmEtYzM0Mi00Zjg0LWJiMTQtZjI5NTE1MmM4OWM2IiwidGVuYW50X2lkIjoiNWMwNzgwZmU5MTVlZmRlMDIyZDE1YTkwM2E3MDI5Y2E1YjgxMTMwM2IwYzZhZjY0Y2Y1ZDExYjQ1Yjg3ODk4ZiIsImludGVybmFsX3NlY3JldCI6IjAzZjk0YTU3LTI2YmUtNDk3My1hOTI3LTJjZTU0YzdhYjU5NyJ9.573gllwmI6SCmQHSyG6bFpKn9S-Clb-ZSTD49JT_QwY"
+NEXTAUTH_SECRET="super-secret-key-goes-here"
+NEXTAUTH_URL="http://localhost:3000"
+EMAIL_USER="prajwal.singh.716@gmail.com"
+EMAIL_PASSWORD="dkxb doil vqfb qlfn"
 ```
 
 ### 4. Generate Prisma Client & Push Schema
@@ -169,3 +171,5 @@ npm run send-reminders
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+
