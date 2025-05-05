@@ -31,10 +31,10 @@ export default async function UserPage({ params }: any) {
           <BackButton />
         </div>
         <p className="text-gray-700">Email: {user.email}</p>
-        <p className="text-gray-700">Phone: {user.phone || "Not provided"}</p>
         <p className="text-gray-700">
-          Address: {user.address || "Not provided"}
+          Contact: {user?.email || "Not provided"}
         </p>
+        <p className="text-gray-700">User Id: {user.id || "Not provided"}</p>
       </div>
 
       <div className="flex justify-between items-center mb-4">

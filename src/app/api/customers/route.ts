@@ -1,17 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../lib/prisma";
 import { getServerSession } from "next-auth";
-// import { authOptions } from "../auth/[...nextauth]/route";
 import { authOptions } from "../../../lib/authOptions";
 export async function GET(req: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (!session?.user?.email) {
-    return NextResponse.redirect("/login"); // Redirect to login on unauthorized access
+    return NextResponse.redirect("/login");
   }
 
   const customers = await prisma.user.findMany({
-    where: { email: session?.user?.email }, // Fetch only the logged-in user's data
+    where: { email: session?.user?.email },
     select: {
       id: true,
       name: true,
@@ -26,7 +25,7 @@ export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (!session?.user?.email) {
-    return NextResponse.redirect("/login"); // Redirect to login on unauthorized access
+    return NextResponse.redirect("/login");
   }
 
   const { name, email, phone, address } = await req.json();
