@@ -2,11 +2,13 @@
   "name": "cloudial-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npm install && npx prisma generate && npm run build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "send-reminders": "set NODE_OPTIONS=--loader ts-node/esm && ts-node src/lib/sendInvoiceReminders.ts"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
@@ -19,6 +21,7 @@
     "next": "15.3.1",
     "next-auth": "^4.24.11",
     "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.1",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
@@ -28,14 +31,16 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.17.32",
     "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "prisma": "^6.6.0",
     "tailwindcss": "^4.1.4",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
